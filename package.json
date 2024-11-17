@@ -3,8 +3,10 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "start": "webpack serve --mode development",
-    "build": "webpack --mode production"
+    "build:client": "webpack --config webpack.config.js --mode production",
+    "build:server": "webpack --config webpack.server.js --mode production",
+    "build": "yarn build:client && yarn build:server",
+    "start": "node dist/server.js"
   },
   "dependencies": {
     "@babel/core": "^7.26.0",
@@ -12,6 +14,7 @@
     "@babel/preset-react": "^7.25.9",
     "babel-loader": "^9.2.1",
     "css-loader": "^7.1.2",
+    "express": "^4.21.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "sass": "^1.81.0",
@@ -22,7 +25,12 @@
     "webpack-dev-server": "^5.1.0"
   },
   "devDependencies": {
-    "html-webpack-plugin": "^5.6.3"
+    "html-webpack-plugin": "^5.6.3",
+    "webpack-node-externals": "^3.0.0"
+  },
+  "volta": {
+    "node": "20.0.0",
+    "yarn": "1.22.19"
   },
   "repository": "git@github.com:anna-llorens/movies.git",
   "author": "Anna Llorens",

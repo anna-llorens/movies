@@ -2,11 +2,10 @@ const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
-  entry: "./src/index.js", // Entry point 
+  entry: "./src/index.js",
   output: {
     path: path.resolve(__dirname, "dist"),
     filename: "bundle.js",
-    clean: true, 
   },
   module: {
     rules: [
@@ -30,15 +29,7 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: "./public/index.html", 
-      filename: "index.html",
+      template: "./public/index.html",
     }),
   ],
-  devServer: {
-    static: path.resolve(__dirname, "dist"), // Serve from 'dist' folder
-    compress: true, // Enable Gzip compression
-    port: 8080, 
-    open: true, 
-    historyApiFallback: true, // Fallback to index.html for SPA routing
-  },
 };
