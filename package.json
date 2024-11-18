@@ -5,8 +5,9 @@
   "scripts": {
     "build:client": "webpack --config webpack.config.js --mode production",
     "build:server": "webpack --config webpack.server.js --mode production",
-    "build": "yarn build:client && yarn build:server",
-    "start": "node dist/server.js"
+    "watch:server": "webpack --config webpack.server.js --watch --mode development",
+    "start": "nodemon dist/server.js",
+    "dev": "yarn watch:server & yarn start"
   },
   "dependencies": {
     "@babel/core": "^7.26.0",
@@ -26,6 +27,7 @@
   },
   "devDependencies": {
     "html-webpack-plugin": "^5.6.3",
+    "nodemon": "^3.1.7",
     "webpack-node-externals": "^3.0.0"
   },
   "volta": {
